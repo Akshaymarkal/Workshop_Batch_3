@@ -30,7 +30,7 @@ jobs:
           at: ./
       - run: docker build -f Dockerfile --iidfile imageid.txt -t registry.heroku.com/book-shop-batch3-pair-051/web:${CIRCLE_SHA1} .
       - run: docker login --username=_ --password=$HEROKU_TOKEN registry.heroku.com
-      - run: docker tag registry.heroku.com/book-shop-batch3-pair-051/web:${CIRCLE_SHA1} registry.heroku.com/book-shop-application-batch2/web:${CIRCLE_SHA1}
+      - run: docker tag registry.heroku.com/book-shop-batch3-pair-051/web:${CIRCLE_SHA1} registry.heroku.com/book-shop-batch3-pair-051/web:${CIRCLE_SHA1}
       - run: docker push registry.heroku.com/book-shop-batch3-pair-051/web:${CIRCLE_SHA1}
       - persist_to_workspace:
           root: ./
