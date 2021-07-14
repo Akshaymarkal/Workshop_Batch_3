@@ -11,6 +11,12 @@ jobs:
           paths:
             - build/
             - .gradle/
+  checkstyle:
+    docker:
+      - image: gradle:alpine
+    steps:
+      - checkout
+      - run: ./gradlew checkstyleMain
   test:
     docker:
       - image: gradle:alpine
@@ -62,3 +68,6 @@ workflows:
           requires:
             - test
             - package
+      - checksytle:
+          requires:
+            - build
